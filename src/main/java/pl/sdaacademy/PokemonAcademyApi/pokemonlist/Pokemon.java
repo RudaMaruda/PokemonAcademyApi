@@ -2,7 +2,7 @@ package pl.sdaacademy.PokemonAcademyApi.pokemonlist;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-
+// dane bazodanowe, logika bazodanowa
 @Entity
 public class Pokemon {
     @Id

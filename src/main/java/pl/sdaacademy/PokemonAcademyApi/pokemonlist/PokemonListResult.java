@@ -1,25 +1,26 @@
 package pl.sdaacademy.PokemonAcademyApi.pokemonlist;
 
 import java.util.List;
-
-public class PokemonListResult {
+// odpowiedz z api
+class PokemonListResult {
     private String next;
 
-    private List<Pokemon> results;
 
-    public List<Pokemon> getResults() {
+    private List<PokemonItem> results;
+
+    List<PokemonItem> getResults() {
         return results;
     }
 
-    public void setResults(List<Pokemon> results) {
+    void setResults(List<PokemonItem> results) {
         this.results = results;
     }
 
-    public String getNext() {
+    String getNext() {
         return next;
     }
 
-    public void setNext(String next) {
+    void setNext(String next) {
         this.next = next;
     }
 }
