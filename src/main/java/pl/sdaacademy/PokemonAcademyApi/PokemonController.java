@@ -5,7 +5,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pl.sdaacademy.PokemonAcademyApi.pokemondetails.NoPokemonFoundException;
+import pl.sdaacademy.PokemonAcademyApi.pokemondetails.PokemonDetailsResponse;
 import pl.sdaacademy.PokemonAcademyApi.pokemondetails.PokemonDetailsService;
+import pl.sdaacademy.PokemonAcademyApi.pokemondetails.PokemonNewDetails;
 import pl.sdaacademy.PokemonAcademyApi.pokemonlist.Pokemon;
 import pl.sdaacademy.PokemonAcademyApi.pokemonlist.PokemonListService;
 
@@ -33,7 +35,8 @@ class PokemonController {
     }
 
     @GetMapping("/{name}")
-Pokemon getPokemonDetails(@PathVariable String name){
+    PokemonNewDetails getPokemonDetails(@PathVariable String name){
+
         return pokemonDetailsService.getPokemonDetails(name);
 
 }

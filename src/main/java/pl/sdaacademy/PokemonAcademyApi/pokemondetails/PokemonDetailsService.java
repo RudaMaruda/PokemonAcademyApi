@@ -7,18 +7,25 @@ import pl.sdaacademy.PokemonAcademyApi.pokemonlist.PokemonRepository;
 
 @Service
 public class PokemonDetailsService {
+    private final PokemonDetailsNetworkRepository pokemonDetailsNetworkRepository;
     private final PokemonRepository pokemonRepository;
+    private final PokemonTransformerDetailResponse pokemonTransformerDetailResponse;
 
     @Autowired
-    public PokemonDetailsService(PokemonRepository pokemonRepository) {
+    public PokemonDetailsService(PokemonDetailsNetworkRepository pokemonDetailsNetworkRepository, PokemonRepository pokemonRepository, PokemonTransformerDetailResponse pokemonTransformerDetailResponse) {
+        this.pokemonDetailsNetworkRepository = pokemonDetailsNetworkRepository;
         this.pokemonRepository = pokemonRepository;
+        this.pokemonTransformerDetailResponse = pokemonTransformerDetailResponse;
     }
 
-    public Pokemon getPokemonDetails(String pokemonName){
+
+    public PokemonNewDetails getPokemonDetails(String pokemonName){
         Pokemon pokemon = pokemonRepository.findByName(pokemonName).orElseThrow(()->{
             return new NoPokemonFoundException(pokemonName);
 
         });
-        return pokemon;
+        PokemonDetailsResponse pokemonDetailsResponse = pokemonDetailsNetworkRepository.fetchPokemonDetails(pokemon.getId());
+PokemonNewDetails pokemonNewDetails = pokemonTransformerDetailResponse.toEntity(pokemonDetailsResponse);
+        return pokemonNewDetails;
     }
 }
