@@ -1,4 +1,5 @@
 package pl.sdaacademy.PokemonAcademyApi.pokemonlist;
+
 // odpowiedz z api, dto
 public class PokemonItem {
     private String name;

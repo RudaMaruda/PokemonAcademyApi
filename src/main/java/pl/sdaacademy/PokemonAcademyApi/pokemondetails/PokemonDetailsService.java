@@ -19,13 +19,13 @@ public class PokemonDetailsService {
     }
 
 
-    public PokemonNewDetails getPokemonDetails(String pokemonName){
-        Pokemon pokemon = pokemonRepository.findByName(pokemonName).orElseThrow(()->{
+    public PokemonNewDetails getPokemonDetails(String pokemonName) {
+        Pokemon pokemon = pokemonRepository.findByName(pokemonName).orElseThrow(() -> {
             return new NoPokemonFoundException(pokemonName);
 
         });
         PokemonDetailsResponse pokemonDetailsResponse = pokemonDetailsNetworkRepository.fetchPokemonDetails(pokemon.getId());
-PokemonNewDetails pokemonNewDetails = pokemonTransformerDetailResponse.toEntity(pokemonDetailsResponse);
+        PokemonNewDetails pokemonNewDetails = pokemonTransformerDetailResponse.toEntity(pokemonDetailsResponse);
         return pokemonNewDetails;
     }
 }

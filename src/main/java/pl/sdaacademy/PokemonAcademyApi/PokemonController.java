@@ -5,7 +5,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pl.sdaacademy.PokemonAcademyApi.pokemondetails.NoPokemonFoundException;
-import pl.sdaacademy.PokemonAcademyApi.pokemondetails.PokemonDetailsResponse;
 import pl.sdaacademy.PokemonAcademyApi.pokemondetails.PokemonDetailsService;
 import pl.sdaacademy.PokemonAcademyApi.pokemondetails.PokemonNewDetails;
 import pl.sdaacademy.PokemonAcademyApi.pokemonlist.Pokemon;
@@ -21,8 +20,6 @@ class PokemonController {
     private final PokemonDetailsService pokemonDetailsService;
 
 
-
-
     @Autowired
     PokemonController(PokemonListService pokemonListService, PokemonDetailsService pokemonDetailsService) {
         this.pokemonListService = pokemonListService;
@@ -30,16 +27,16 @@ class PokemonController {
     }
 
     @GetMapping("/list")
-    List<Pokemon> getPokemonList(){
+    List<Pokemon> getPokemonList() {
         return pokemonListService.getPokemonList();
     }
 
     @GetMapping("/{name}")
-    PokemonNewDetails getPokemonDetails(@PathVariable String name){
+    PokemonNewDetails getPokemonDetails(@PathVariable String name) {
 
         return pokemonDetailsService.getPokemonDetails(name);
 
-}
+    }
 
     @ExceptionHandler(value = NoPokemonFoundException.class)
     public ResponseEntity<ErrorMessage> handleNoPokemonFoundException(NoPokemonFoundException exception) {

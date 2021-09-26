@@ -3,6 +3,7 @@ package pl.sdaacademy.PokemonAcademyApi.pokemondetails;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.List;
+
 public class PokemonDetailsResponse {
     private List<Abilities> abilities;
     private int height;

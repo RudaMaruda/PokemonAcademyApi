@@ -1,6 +1,7 @@
 package pl.sdaacademy.PokemonAcademyApi.pokemonlist;
 
 import java.util.List;
+
 // odpowiedz z api
 class PokemonListResult {
     private String next;
