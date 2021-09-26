@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-class PokemonListService {
+public class PokemonListService {
     private final PokemonRepository pokemonRepository;
 private final PokemonTransformer pokemonTransformer;
     private final PokemonListNetworkRepository pokemonListNetworkRepository;
@@ -21,7 +21,7 @@ private final PokemonTransformer pokemonTransformer;
         this.pokemonTransformer = pokemonTransformer;
     }
 
-    List<Pokemon> getPokemonList(){
+    public List<Pokemon> getPokemonList(){
         if(pokemonRepository.count() != 0 ){
             return pokemonRepository.findAll();
         }
