@@ -25,9 +25,13 @@ class PokemonController {
         this.pokemonDetailsService = pokemonDetailsService;
     }
 
+    // do sprawdzenia z uzyciem limitow przekazywanych w parametrach uzyj w postman:
+    // localhost:8093/pokemon/list?offset=1&limit=20
+
     @GetMapping("/list")
-    List<PokemonListItem> getPokemonItemList() {
-        return pokemonListService.getPokemonListItem();
+    List<PokemonListItem> getPokemonItemList(@RequestParam(defaultValue = "0") int offset,
+                                             @RequestParam(defaultValue = "20") int limit) {
+        return pokemonListService.getPokemonListItem(offset,limit);
     }
 
     // parametr zadania: bulbasaur/pikachu/chalender

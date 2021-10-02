@@ -55,11 +55,11 @@ public class PokemonListService {
     }
 
     // metoda ktora bedzie pobierala liste pokemonow z obrazkami
-    public List<PokemonListItem> getPokemonListItem() {
+    public List<PokemonListItem> getPokemonListItem(int offset, int limit) {
         final List<PokemonListItem> pokemonListItems = new ArrayList<>();
         //pobierzemy tylko 20 rekordow
-        int offset = 0;
-        int limit = 20;
+//        int offset = 0;
+//        int limit = 20;
         // obiekt ktory definiuje ile rekordow powinno byc pobrane z bazy danych, wtedy metoda findAll zwraca nam tylko pierwsze 20 rekordow
         Pageable pageable = (Pageable) PageRequest.of(offset, limit);
         List<Pokemon> pokemons = pokemonRepository.findAll(pageable).getContent();

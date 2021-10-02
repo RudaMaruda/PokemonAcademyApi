@@ -10,6 +10,7 @@ public class PokemonListItemTransformer {
         PokemonListItem pokemonListItem = new PokemonListItem();
         pokemonListItem.setName(pokemonNewDetails.getName());
         pokemonListItem.setImageUrl(pokemonNewDetails.getImageUrl());
+        pokemonListItem.setUrl("localhost:8093/pokemon?names="+pokemonNewDetails.getName());
         return pokemonListItem;
     }
 }
