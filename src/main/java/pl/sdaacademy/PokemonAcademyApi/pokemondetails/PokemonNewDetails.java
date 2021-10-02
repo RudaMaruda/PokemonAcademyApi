@@ -1,6 +1,8 @@
 package pl.sdaacademy.PokemonAcademyApi.pokemondetails;
 
 
+import pl.sdaacademy.PokemonAcademyApi.pokemonlist.PokemonListItem;
+
 import javax.persistence.Convert;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -8,6 +10,8 @@ import java.util.List;
 
 @Entity
 public class PokemonNewDetails {
+    //obiekt ktory nigdy nie bedzie nullem ale bedzie pusty, dostepny wszedzie dzieki static i jedyny taki bo 'final'
+    public static final PokemonNewDetails EMPTY = new PokemonNewDetails();
     @Convert(converter = StringListConverter.class)
     private List<String> abilities;
     private int height;

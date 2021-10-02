@@ -28,8 +28,18 @@ public class PokemonDetailsService {
     public List<PokemonNewDetails> getListOfPokemonDetails(String pokemonNames) {
         String[] names = pokemonNames.split(",");
         return Arrays.stream(names).map(name -> {
-            return getPokemonDetails(name);
-        }).collect(Collectors.toList());
+            try {
+                return getPokemonDetails(name);
+            } catch (NoPokemonFoundException e) {
+                e.printStackTrace();
+            }
+            return PokemonNewDetails.EMPTY;
+
+        }).filter(pokemonNewDetails -> {
+
+            return pokemonNewDetails != PokemonNewDetails.EMPTY;
+        })
+                .collect(Collectors.toList());
     }
 
     public PokemonNewDetails getPokemonDetails(String pokemonName) {
