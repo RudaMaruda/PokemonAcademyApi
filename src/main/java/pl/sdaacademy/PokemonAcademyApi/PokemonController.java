@@ -15,10 +15,8 @@ import java.util.List;
 @RestController
 @RequestMapping("/pokemon")
 class PokemonController {
-
     private final PokemonListService pokemonListService;
     private final PokemonDetailsService pokemonDetailsService;
-
 
     @Autowired
     PokemonController(PokemonListService pokemonListService, PokemonDetailsService pokemonDetailsService) {
@@ -31,11 +29,10 @@ class PokemonController {
         return pokemonListService.getPokemonList();
     }
 
-    @GetMapping("/{name}")
-    PokemonNewDetails getPokemonDetails(@PathVariable String name) {
-
-        return pokemonDetailsService.getPokemonDetails(name);
-
+    // parametr zadania: bulbasaur/pikachu/chalender
+    @GetMapping
+    List<PokemonNewDetails> getPokemonDetails(@RequestParam String name) {
+        return pokemonDetailsService.getListOfPokemonDetails(name);
     }
 
     @ExceptionHandler(value = NoPokemonFoundException.class)

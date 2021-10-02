@@ -20,6 +20,4 @@ class PokemonListNetworkRepository {
         String url = String.format(endpointUrl, offset, limit);
         return restTemplate.getForObject(url, PokemonListResult.class);
     }
-
-
 }

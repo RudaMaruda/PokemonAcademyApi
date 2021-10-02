@@ -20,8 +20,6 @@ public class PokemonTransformerDetailResponse {
                 .map(types -> types.getType())
                 .map(type -> type.getName())
                 .collect(Collectors.toList()));
-
-
         return pokemonNew;
     }
 }

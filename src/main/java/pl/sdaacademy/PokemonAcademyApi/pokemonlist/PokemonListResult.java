@@ -5,8 +5,6 @@ import java.util.List;
 // odpowiedz z api
 class PokemonListResult {
     private String next;
-
-
     private List<PokemonItem> results;
 
     List<PokemonItem> getResults() {
