@@ -8,6 +8,7 @@ import pl.sdaacademy.PokemonAcademyApi.pokemondetails.NoPokemonFoundException;
 import pl.sdaacademy.PokemonAcademyApi.pokemondetails.PokemonDetailsService;
 import pl.sdaacademy.PokemonAcademyApi.pokemondetails.PokemonNewDetails;
 import pl.sdaacademy.PokemonAcademyApi.pokemonlist.Pokemon;
+import pl.sdaacademy.PokemonAcademyApi.pokemonlist.PokemonListItem;
 import pl.sdaacademy.PokemonAcademyApi.pokemonlist.PokemonListService;
 
 import java.util.List;
@@ -25,8 +26,8 @@ class PokemonController {
     }
 
     @GetMapping("/list")
-    List<Pokemon> getPokemonList() {
-        return pokemonListService.getPokemonList();
+    List<PokemonListItem> getPokemonItemList() {
+        return pokemonListService.getPokemonListItem();
     }
 
     // parametr zadania: bulbasaur/pikachu/chalender
