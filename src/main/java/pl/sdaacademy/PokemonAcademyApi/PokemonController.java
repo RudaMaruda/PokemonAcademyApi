@@ -13,6 +13,7 @@ import pl.sdaacademy.PokemonAcademyApi.pokemonlist.PokemonListService;
 
 import java.util.List;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/pokemon")
 class PokemonController {
