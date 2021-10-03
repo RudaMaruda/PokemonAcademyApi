@@ -8,6 +8,7 @@ import pl.sdaacademy.PokemonAcademyApi.pokemondetails.NoPokemonFoundException;
 import pl.sdaacademy.PokemonAcademyApi.pokemondetails.PokemonDetailsService;
 import pl.sdaacademy.PokemonAcademyApi.pokemondetails.PokemonNewDetails;
 import pl.sdaacademy.PokemonAcademyApi.pokemonlist.Pokemon;
+import pl.sdaacademy.PokemonAcademyApi.pokemonlist.PokemonListEnvelop;
 import pl.sdaacademy.PokemonAcademyApi.pokemonlist.PokemonListItem;
 import pl.sdaacademy.PokemonAcademyApi.pokemonlist.PokemonListService;
 
@@ -30,8 +31,8 @@ class PokemonController {
     // localhost:8093/pokemon/list?offset=1&limit=20
 
     @GetMapping("/list")
-    List<PokemonListItem> getPokemonItemList(@RequestParam(defaultValue = "0") int offset,
-                                             @RequestParam(defaultValue = "20") int limit) {
+    PokemonListEnvelop getPokemonItemList(@RequestParam(defaultValue = "0") int offset,
+                                          @RequestParam(defaultValue = "20") int limit) {
         return pokemonListService.getPokemonListItem(offset,limit);
     }
 
