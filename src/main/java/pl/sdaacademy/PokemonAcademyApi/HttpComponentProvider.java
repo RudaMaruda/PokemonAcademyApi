@@ -12,6 +12,7 @@ import org.springframework.web.client.RestTemplate;
 public class HttpComponentProvider {
 
     @Bean
+    // Rest Template zapewnia nam komunikacje miedzy mikro serwisami
     public RestTemplate restTemplate() {
         CloseableHttpClient httpClient = HttpClients.custom()
                 .setSSLHostnameVerifier(new NoopHostnameVerifier())
