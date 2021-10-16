@@ -6,8 +6,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class PokemonAcademyApiApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(PokemonAcademyApiApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(PokemonAcademyApiApplication.class, args);
+
+    }
 
 }
